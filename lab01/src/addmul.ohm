@@ -1,3 +1,14 @@
 AddMul {
- // Write the rules here
+  Expr = Add                -- root
+
+  Add = Add "+" Mul         -- plus
+      | Mul                 -- mul
+
+  Mul = Mul "*" Pri         -- times
+      | Pri                 -- pri
+
+  Pri = "(" Expr ")"        -- paren
+      | number              -- num
+
+  number = digit+           
 }

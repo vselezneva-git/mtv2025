@@ -6,11 +6,11 @@ export async function buildOneFunctionModule<R=number>(name: string, argCount: n
 {
     const mod = c.module([
         c.type_section([
-            c.func_type(Array(argCount).fill(c.i32), c.i32), // type index = 0
+            c.func_type(Array(argCount).fill(c.i32), c.i32),
         ]),
     
     c.function_section([
-        c.varuint32(0), // function index = 0, uses type index 0
+        c.varuint32(0),
     ]),
     
     c.export_section([
@@ -18,8 +18,7 @@ export async function buildOneFunctionModule<R=number>(name: string, argCount: n
     ]),
 
     c.code_section([
-        // body of function at index 0:
-        c.function_body([ /* no additional local variables */ ], body)]
+        c.function_body([], body)]
     )]
     );
     const emitter = new BufferedEmitter(new ArrayBuffer(mod.z));

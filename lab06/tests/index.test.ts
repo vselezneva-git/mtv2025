@@ -20,6 +20,10 @@ describe("Numerical tests", ()=>{
     test("(f/g)' == (f'*g - f*g')/(g^2) 2", 3, deriveAndCalculate, 1, "x/y", "x", 10, 1);
     test("(f/g)' == (f'*g - f*g')/(g^2) 3", 3, deriveAndCalculate, -1, "x/y", "y", 1, 1);
     test("(f/g)' == (f'*g - f*g')/(g^2) 3", 3, deriveAndCalculate, -4, "x/y", "y", 16, 2);
+    //2 моих тестика на подобные члены
+    test("x + x = 2*x", 5, parseAndDerive,parseExpr("2*x"), "x*x", "x");
+    test("y + 2*y = 3*y", 5, parseAndDerive, parseExpr("3*y"), "x*y + 2*x*y", "x");
+
 });
 
 describe("Structural tests", ()=>{

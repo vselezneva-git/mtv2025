@@ -10,6 +10,10 @@ describe('testing addition and multiplication printing', () => {
     test("Newlines are removed from the addition", 4, parseAndPrint, "35 + 7", `
         35  +
         7`);
+    test("test 1", 4, parseAndPrint, "1 - (2 + 3)", "1-(2+3)");
+
+    test("test 2", 4, parseAndPrint, "1 + 2 - 3", "1+(2-3)");
+
     test("Parentheses are removed from addition", 4, parseAndPrint, "5 + 4 + 3 + 2 + 1 + 2 + 3 + 4 + 5 + 6 + 7", "5+((4+3)+2) +1+ (2+3 + 4)+5+6+7" );
     test("Multiplication is properly spaced", 3, parseAndPrint, "6 * 7", "6*7");
     test("Multiplication is performed before addition (1)", 4, parseAndPrint, "6 * 6 + 6", "(6*6)+6");
